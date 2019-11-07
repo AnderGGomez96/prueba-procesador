@@ -45,7 +45,7 @@ module CU(
 				memWr<=0;
 				memToReg<=0;
 				regWr<=1;
-				pcSrc<=0;
+				pcSrc<=zero;
 			end
 			11001011000: //SUB
 			begin
@@ -57,7 +57,7 @@ module CU(
 				memWr<=0;
 				memToReg<=0;
 				regWr<=1;
-				pcSrc<=0;
+				pcSrc<=zero;
 			end
 			10001010000://AND
 			begin
@@ -69,7 +69,7 @@ module CU(
 				memWr<=0;
 				memToReg<=0;
 				regWr<=1;
-				pcSrc<=0;
+				pcSrc<=zero;
 			end
 			10101010000: //ORR
 			begin
@@ -81,31 +81,31 @@ module CU(
 				memWr<=0;
 				memToReg<=0;
 				regWr<=1;
-				pcSrc<=0;
+				pcSrc<=zero;
 			end
 			11111000010://LDUR
 			begin
 				reg2loc<=1; //X
 				seu<=01;
 				aluSrc<=1;
-				aluOp<=100;
+				aluOp<=000;
 				memRd<=1;
 				memWr<=0;
 				memToReg<=1;
 				regWr<=1;
-				pcSrc<=0;
+				pcSrc<=zero;
 			end
 			11111000000://STUR
 			begin
 				reg2loc<=1;
 				seu<=01;
 				aluSrc<=1;
-				aluOp<=100;
+				aluOp<=000;
 				memRd<=0;
 				memWr<=1;
 				memToReg<=0; //X
 				regWr<=0;
-				pcSrc<=0;
+				pcSrc<=zero;
 			end
 		endcase
 		case(opcode[10:5]) //6 bits
@@ -119,7 +119,7 @@ module CU(
 				memWr<=0;
 				memToReg<=0;
 				regWr<=0;
-				pcSrc<=1;
+				pcSrc<=!zero; //<--------------------
 			end
 		endcase
 		case(opcode[10:3]) //8 bits
@@ -128,24 +128,24 @@ module CU(
 				reg2loc<=1;
 				seu<=11;
 				aluSrc<=0;
-				aluOp<=000;
+				aluOp<=100;
 				memRd<=0;
 				memWr<=0;
 				memToReg<=0; //X
 				regWr<=0;
-				pcSrc<=0;
+				pcSrc<=!zero;
 			end
 			10110101://CBNZ
 			begin
 				reg2loc<=1;
 				seu<=11;
 				aluSrc<=0;
-				aluOp<=000;
+				aluOp<=100;
 				memRd<=0;
 				memWr<=0;
 				memToReg<=0;//X
 				regWr<=0;
-				pcSrc<=1;
+				pcSrc<=zero;
 			end
 		endcase
 		case (opcode[10:1])
@@ -159,7 +159,7 @@ module CU(
 				memWr<=0;
 				memToReg<=0;
 				regWr<=1;
-				pcSrc<=0;				
+				pcSrc<=zero;				
 			end
 			1101000100: //SUBI
 			begin
@@ -171,7 +171,7 @@ module CU(
 				memWr<=0;
 				memToReg<=0;
 				regWr<=1;
-				pcSrc<=0;
+				pcSrc<=zero;
 			end
 			1001001000: //ANDI
 			begin
@@ -183,7 +183,7 @@ module CU(
 				memWr<=0;
 				memToReg<=0;
 				regWr<=1;
-				pcSrc<=0;
+				pcSrc<=zero;
 			end
 			1011001000: //ORRI
 			begin
@@ -195,7 +195,7 @@ module CU(
 				memWr<=0;
 				memToReg<=0;
 				regWr<=1;
-				pcSrc<=0;
+				pcSrc<=zero;
 			end
 		endcase
 	 end
