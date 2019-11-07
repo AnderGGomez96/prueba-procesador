@@ -40,7 +40,7 @@ module registerFile(
 	 always @ (negedge CLK)
 	 begin
 	 if(regWR) // se valida si se permite la escritura en el FF
-		if(Rd != 5'd31) // si Rd (registro destino) es diferente de 31 se escribe la informacion
+		if(Rd != 5'b11111) // si Rd (registro destino) es diferente de 31 se escribe la informacion
 			FF[Rd]<= dataWrite;
 		else
 			FF[31]<=64'd0; // si Rd es 31, se escribe ceros (0)

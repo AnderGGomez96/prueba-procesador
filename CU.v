@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module CU(
     input Zero,
-    input [10:0] Instruction,
+    input [10:0] opcode,
     output reg2loc,
     output [1:0] seu,
     output aluSrc,
@@ -32,13 +32,13 @@ module CU(
     output pcSrc
     );
 	 
-	 always @ (Zero, Instruction)
+	 always @ (Zero, opcode)
 	 begin
-		case (Instruction)
+		case (opcode)   //11 bits
 			10001011000: //ADD
 			begin
 				reg2loc<=0;
-				seu<=00; //<- no estoy seguro
+				seu<=00; //<- XX
 				aluSrc<=0;
 				aluOp<=000;
 				memRd<=0;
@@ -50,7 +50,7 @@ module CU(
 			11001011000: //SUB
 			begin
 				reg2loc<=0;
-				seu<=00; //<- no estoy seguro
+				seu<=00; //<- XX
 				aluSrc<=0;
 				aluOp<=001;
 				memRd<=0;
@@ -62,7 +62,7 @@ module CU(
 			10001010000://AND
 			begin
 				reg2loc<=0;
-				seu<=00; //<- no estoy seguro
+				seu<=00; //<- XX
 				aluSrc<=0;
 				aluOp<=010;
 				memRd<=0;
@@ -74,7 +74,7 @@ module CU(
 			10101010000: //ORR
 			begin
 				reg2loc<=0;
-				seu<=00;//<- no estoy seguro
+				seu<=00;//<- XX
 				aluSrc<=0;
 				aluOp<=011;
 				memRd<=0;
@@ -85,7 +85,7 @@ module CU(
 			end
 			11111000010://LDUR
 			begin
-				reg2loc<=1;
+				reg2loc<=1; //X
 				seu<=01;
 				aluSrc<=1;
 				aluOp<=100;
@@ -103,13 +103,100 @@ module CU(
 				aluOp<=100;
 				memRd<=0;
 				memWr<=1;
-				memToReg<=0;
+				memToReg<=0; //X
 				regWr<=0;
 				pcSrc<=0;
 			end
 		endcase
-		case(instruction[5:0])
-		
+		case(opcode[10:5]) //6 bits
+			000101://B
+			begin
+				reg2loc<=0; //X
+				seu<=10;
+				aluSrc<=0;  //X
+				aluOp<=100;
+				memRd<=0;
+				memWr<=0;
+				memToReg<=0;
+				regWr<=0;
+				pcSrc<=1;
+			end
+		endcase
+		case(opcode[10:3]) //8 bits
+			10110100://CBZ
+			begin
+				reg2loc<=1;
+				seu<=11;
+				aluSrc<=0;
+				aluOp<=000;
+				memRd<=0;
+				memWr<=0;
+				memToReg<=0; //X
+				regWr<=0;
+				pcSrc<=0;
+			end
+			10110101://CBNZ
+			begin
+				reg2loc<=1;
+				seu<=11;
+				aluSrc<=0;
+				aluOp<=000;
+				memRd<=0;
+				memWr<=0;
+				memToReg<=0;//X
+				regWr<=0;
+				pcSrc<=1;
+			end
+		endcase
+		case (opcode[10:1])
+			1001000100: // ADDI
+			begin
+				reg2loc<=1; //X
+				seu<=00;
+				aluSrc<=1;
+				aluOp<=000;
+				memRd<=0;
+				memWr<=0;
+				memToReg<=0;
+				regWr<=1;
+				pcSrc<=0;				
+			end
+			1101000100: //SUBI
+			begin
+				reg2loc<=1; //X
+				seu<=00;
+				aluSrc<=1;
+				aluOp<=001;
+				memRd<=0;
+				memWr<=0;
+				memToReg<=0;
+				regWr<=1;
+				pcSrc<=0;
+			end
+			1001001000: //ANDI
+			begin
+				reg2loc<=1; //X
+				seu<=00;
+				aluSrc<=1;
+				aluOp<=010;
+				memRd<=0;
+				memWr<=0;
+				memToReg<=0;
+				regWr<=1;
+				pcSrc<=0;
+			end
+			1011001000: //ORRI
+			begin
+				reg2loc<=1; //X
+				seu<=00;
+				aluSrc<=1;
+				aluOp<=011;
+				memRd<=0;
+				memWr<=0;
+				memToReg<=0;
+				regWr<=1;
+				pcSrc<=0;
+			end
 		endcase
 	 end
 
