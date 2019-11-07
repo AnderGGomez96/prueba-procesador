@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module CU(
-    input Zero,
+    input zero,
     input [10:0] opcode,
     output reg2loc,
     output [1:0] seu,
@@ -32,7 +32,7 @@ module CU(
     output pcSrc
     );
 	 
-	 always @ (Zero, opcode)
+	 always @ (zero, opcode)
 	 begin
 		case (opcode)   //11 bits
 			10001011000: //ADD
