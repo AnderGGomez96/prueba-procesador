@@ -21,8 +21,9 @@
 module SEU(
     input [25:0] address,
     input [1:0] seu,
-    output [63:0] bus
+    output [63:0] bus_out
     );
+	 reg [63:0] bus;
 	 always @ (address, seu)
 	 begin
 		 case(seu)
@@ -44,6 +45,5 @@ module SEU(
 		 end
 		 endcase
 	 end
-
-
+	 assign bus_out= bus;
 endmodule

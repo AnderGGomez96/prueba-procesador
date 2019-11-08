@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module registerFile(
-    input CLK,
+    input Clk,
     input [4:0] Rn,
     input [4:0] Rm,
     input [4:0] Rd, //Registro destino.
@@ -29,20 +29,20 @@ module registerFile(
     output [63:0] dataRm
     );
 	 
-	 //se crean 32 Flip/Flops de 64 bits.
-	 reg [63:0] FF [31:0];
+	 //se crean 32 Registros de 64 bits.
+	 reg [63:0] Registros [31:0]; 
 	 
 	 //como la lectura es asincrona y se realiza en todo momento.
 	 //se asigna el contenido del FF Rn al bus de datos dataRn.
-	 assign dataRn = FF[Rn];
-	 assign dataRm = FF[Rm];
+	 assign dataRn = Registros[Rn];
+	 assign dataRm = Registros[Rm];
 	 
-	 always @ (negedge CLK)
+	 always @ (negedge Clk)
 	 begin
 	 if(regWR) // se valida si se permite la escritura en el FF
 		if(Rd != 5'b11111) // si Rd (registro destino) es diferente de 31 se escribe la informacion
-			FF[Rd]<= dataWrite;
+			Registros[Rd]<= dataWrite;
 		else
-			FF[31]<=64'd0; // si Rd es 31, se escribe ceros (0)
+			Registros[31]<=64'b0; // si Rd es 31, se escribe ceros (0)
 	 end
 endmodule
