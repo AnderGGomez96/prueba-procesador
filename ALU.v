@@ -20,8 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 module ALU(
     input [2:0] aluOP,
-    input [64:0] A,
-    input [64:0] B,
+    input [63:0] A,
+    input [63:0] B,
     output zero,
     output [63:0] bus_resultOP
     );
@@ -34,16 +34,16 @@ module ALU(
 			3'b000: resultOP<=A+B;//SUMA		
 			3'b001: resultOP<=A-B;//RESTA
 			3'b010: resultOP<=A&B;// AND
-			3'b011:resultOP<=A||B;// ORR
+			3'b011:resultOP<=A|B;// ORR
 			3'b100://pass B
 			begin
 				if (B==64'h0)
-					resultOP<=64'h0000;
+					resultOP<=64'h00000000;
 				else
-					resultOP<=64'hFFFF;
+					resultOP<=64'hFFFFFFFF;
 			end
 		endcase
 	 end
-	 assign zero = (resultOP == 64'h0000)? 1'b1:1'b0;
+	 assign zero = (resultOP == 64'h00000000)? 1'b1:1'b0;
 	 assign bus_resultOP=resultOP;
 endmodule

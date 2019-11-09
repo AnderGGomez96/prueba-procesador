@@ -19,7 +19,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module registerFile(
-    input Clk,
+    input clk,
     input [4:0] Rn,
     input [4:0] Rm,
     input [4:0] Rd, //Registro destino.
@@ -37,7 +37,7 @@ module registerFile(
 	 assign dataRn = Registros[Rn];
 	 assign dataRm = Registros[Rm];
 	 
-	 always @ (negedge Clk)
+	 always @ (posedge clk)
 	 begin
 	 if(regWR) // se valida si se permite la escritura en el FF
 		if(Rd != 5'b11111) // si Rd (registro destino) es diferente de 31 se escribe la informacion

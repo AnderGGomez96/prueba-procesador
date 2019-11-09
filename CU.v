@@ -25,7 +25,7 @@ module CU(
     output [1:0] bus_seu,
     output bus_aluSrc,
     output [2:0] bus_aluOp,
-    output bus_memRd,
+    //output bus_memRd,
     output bus_memWr,
     output bus_memToReg,
     output bus_regWr,
@@ -35,7 +35,7 @@ module CU(
 	reg [1:0] seu;
 	reg aluSrc;
 	reg [2:0] aluOp;
-	reg memRd;
+	//reg memRd;
 	reg memWr;
 	reg memToReg;
 	reg regWr;
@@ -47,62 +47,62 @@ module CU(
 			11'b10001011000: //ADD
 			begin
 				 reg2loc<=1'b0;
-				 seu<=2'b00; //<- XX
+				 seu<=2'bxx; //<- XX
 				 aluSrc<=1'b0;
 				 aluOp<=3'b000;
-				 memRd<=1'b0;
+				 //memRd<=1'b0;
 				 memWr<=1'b0;
 				 memToReg<=1'b0;
 				 regWr<=1'b1;
-				 pcSrc<=zero;
+				 pcSrc<=0;
 			end
 			11'b11001011000: //SUB
 			begin
 				 reg2loc<=1'b0;
-				 seu<=2'b00; //<- XX
+				 seu<=2'bxx; //<- XX
 				 aluSrc<=1'b0;
 				 aluOp<=3'b001;
-				 memRd<=1'b0;
+				 //memRd<=1'b0;
 				 memWr<=1'b0;
 				 memToReg<=1'b0;
 				 regWr<=1'b1;
-				 pcSrc<=zero;
+				 pcSrc<=0;
 			end
 			11'b10001010000://AND
 			begin
 				 reg2loc<=1'b0;
-				 seu<=2'b00; //<- XX
+				 seu<=2'bxx; //<- XX
 				 aluSrc<=1'b0;
 				 aluOp<=3'b010;
-				 memRd<=1'b0;
+				 //memRd<=1'b0;
 				 memWr<=1'b0;
 				 memToReg<=1'b0;
 				 regWr<=1'b1;
-				 pcSrc<=zero;
+				 pcSrc<=0;
 			end
 			11'b10101010000: //ORR
 			begin
 				 reg2loc<=1'b0;
-				 seu<=2'b00;//<- XX
+				 seu<=2'bxx;//<- XX
 				 aluSrc<=1'b0;
 				 aluOp<=3'b011;
-				 memRd<=1'b0;
+				 //memRd<=1'b0;
 				 memWr<=1'b0;
 				 memToReg<=1'b0;
 				 regWr<=1'b1;
-				 pcSrc<=zero;
+				 pcSrc<=0;
 			end
 			11'b11111000010://LDUR
 			begin
-				 reg2loc<=1'b1; //X
+				 reg2loc<=1'bx; //X
 				 seu<=2'b01;
 				 aluSrc<=1'b1;
 				 aluOp<=3'b000;
-				 memRd<=1'b1;
+				 //memRd<=1'b1;
 				 memWr<=1'b0;
 				 memToReg<=1'b1;
 				 regWr<=1'b1;
-				 pcSrc<=zero;
+				 pcSrc<=0;
 			end
 			11'b11111000000://STUR
 			begin
@@ -110,23 +110,23 @@ module CU(
 				seu<=2'b01;
 				aluSrc<=1'b1;
 				aluOp<=3'b000;
-				memRd<=1'b0;
+				//memRd<=1'b0;
 				memWr<=1'b1;
-				memToReg<=1'b0; //X
+				memToReg<=1'bx; //X
 				regWr<=1'b0;
-				pcSrc<=zero;
+				pcSrc<=0;
 			end
 		endcase
 		case(opcode[10:5]) //6 bits
 			6'b000101://B
 			begin
-				reg2loc<=1'b0; //X
+				reg2loc<=1'bx; //X
 				seu<=2'b10;
-				aluSrc<=1'b0;  //X
-				aluOp<=3'b100;
-				memRd<=1'b0;
+				aluSrc<=1'bx;  //X
+				aluOp<=3'bxxx; //x
+				//memRd<=1'b0;
 				memWr<=1'b0;
-				memToReg<=1'b0;
+				memToReg<=1'bx; //x
 				regWr<=1'b0;
 				pcSrc<=!zero; //
 			end
@@ -138,9 +138,9 @@ module CU(
 				seu<=2'b11;
 				aluSrc<=1'b0;
 				aluOp<=3'b100;
-				memRd<=1'b0;
+				//memRd<=1'b0;
 				memWr<=1'b0;
-				memToReg<=1'b0; //X
+				memToReg<=1'bx; //X
 				regWr<=1'b0;
 				pcSrc<=zero;
 			end
@@ -150,9 +150,9 @@ module CU(
 				seu<=2'b11;
 				aluSrc<=1'b0;
 				aluOp<=3'b100;
-				memRd<=1'b0;
+				//memRd<=1'b0;
 				memWr<=1'b0;
-				memToReg<=1'b0;//X
+				memToReg<=1'bx;//X
 				regWr<=1'b0;
 				pcSrc<=!zero;
 			end
@@ -160,51 +160,51 @@ module CU(
 		case (opcode[10:1])
 			10'b1001000100: // ADDI
 			begin
-				reg2loc<=1'b1; //X
+				reg2loc<=1'bx; //X
 				seu<=2'b00;
 				aluSrc<=1'b1;
 				aluOp<=3'b000;
-				memRd<=1'b0;
+				//memRd<=1'b0;
 				memWr<=1'b0;
 				memToReg<=1'b0;
 				regWr<=1'b1;
-				pcSrc<=zero;				
+				pcSrc<=0;				
 			end
 			10'b1101000100: //SUBI
 			begin
-				reg2loc<=1'b1; //X
+				reg2loc<=1'bx; //X
 				seu<=2'b00;
 				aluSrc<=1'b1;
 				aluOp<=3'b001;
-				memRd<=1'b0;
+				//memRd<=1'b0;
 				memWr<=1'b0;
 				memToReg<=1'b0;
 				regWr<=1'b1;
-				pcSrc<=zero;
+				pcSrc<=0;
 			end
 			10'b1001001000: //ANDI
 			begin
-				reg2loc<=1'b1; //X
+				reg2loc<=1'bx; //X
 				seu<=2'b00;
 				aluSrc<=1'b1;
 				aluOp<=3'b010;
-				memRd<=1'b0;
+				//memRd<=1'b0;
 				memWr<=1'b0;
 				memToReg<=1'b0;
 				regWr<=1'b1;
-				pcSrc<=zero;
+				pcSrc<=0;
 			end
 			10'b1011001000: //ORRI
 			begin
-				reg2loc<=1'b1; //X
+				reg2loc<=1'bx; //X
 				seu<=2'b00;
 				aluSrc<=1'b1;
 				aluOp<=3'b011;
-				memRd<=1'b0;
+				//memRd<=1'b0;
 				memWr<=1'b0;
 				memToReg<=1'b0;
 				regWr<=1'b1;
-				pcSrc<=zero;
+				pcSrc<=0;
 			end
 		endcase
 	 end
@@ -213,7 +213,7 @@ module CU(
 	assign bus_seu=seu;
 	assign bus_aluSrc=aluSrc;
 	assign bus_aluOp=aluOp;
-	assign bus_memRd=memRd;
+	//assign bus_memRd=memRd;
 	assign bus_memWr=memWr;
 	assign bus_memToReg=memToReg;
 	assign bus_regWr=regWr;

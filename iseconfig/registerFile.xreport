@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-11-08T13:53:05</DateModified>
+  <DateModified>2019-11-08T15:57:13</DateModified>
   <ModuleName>registerFile</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Ghost/Documents/Anderson/Procesador/iseconfig/registerFile.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Ghost/Documents/Anderson/Procesador\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/Ghost/Desktop/Procesador/iseconfig/registerFile.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Ghost/Desktop/Procesador\</ImplementationReportsDirectory>
   <DateInitialized>2019-11-06T18:55:33</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

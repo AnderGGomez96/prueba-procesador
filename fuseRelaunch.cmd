@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/Ghost/Documents/Anderson/Procesador/IM_tb_isim_beh.exe" -prj "C:/Users/Ghost/Documents/Anderson/Procesador/IM_tb_beh.prj" "work.IM_tb" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/Ghost/Desktop/Procesador/DMIO_TB_isim_beh.exe" -prj "C:/Users/Ghost/Desktop/Procesador/DMIO_TB_beh.prj" "work.DMIO_TB" "work.glbl" 

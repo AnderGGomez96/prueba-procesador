@@ -41,7 +41,7 @@ module SEU(
 		 end
 		 11: //Cond_Branch_Address
 		 begin
-			bus<={{43{address[23]}},address[23:5]};
+			bus<={{43{address[23]}},address[23:5],2'b00};
 		 end
 		 endcase
 	 end

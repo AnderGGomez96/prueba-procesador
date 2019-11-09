@@ -1,19 +1,21 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/Ghost/Documents/Anderson/Procesador/IM_tb_isim_beh.exe -prj C:/Users/Ghost/Documents/Anderson/Procesador/IM_tb_beh.prj work.IM_tb work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/Ghost/Desktop/Procesador/DMIO_TB_isim_beh.exe -prj C:/Users/Ghost/Desktop/Procesador/DMIO_TB_beh.prj work.DMIO_TB work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
-Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/Procesador/IM.v" into library work
-Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/Procesador/IM_tb.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Desktop/Procesador/DMIO.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Desktop/Procesador/DMIO_TB.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Compiling module IM
-Compiling module IM_tb
+Compiling module DM
+Compiling module registroLEDS
+Compiling module DMIO
+Compiling module DMIO_TB
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 3 Verilog Units
-Built simulation executable C:/Users/Ghost/Documents/Anderson/Procesador/IM_tb_isim_beh.exe
-Fuse Memory Usage: 27420 KB
-Fuse CPU Usage: 1046 ms
+Waiting for 2 sub-compilation(s) to finish...
+Compiled 5 Verilog Units
+Built simulation executable C:/Users/Ghost/Desktop/Procesador/DMIO_TB_isim_beh.exe
+Fuse Memory Usage: 27568 KB
+Fuse CPU Usage: 1093 ms

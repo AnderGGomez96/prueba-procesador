@@ -25,9 +25,36 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALU.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="ALU.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="ALU.xst"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="ALU_TB_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALU_TB_stx_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="ALU_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="CU.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="CU.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="CU.xst"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="CU_TB_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="CU_TB_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="CU_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DM.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="DM.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="DM.xst"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="DMIO.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="DMIO.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="DMIO.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="DMIO.ngr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DMIO.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="DMIO.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="DMIO.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="DMIO.xst"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DMIO_TB_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="DMIO_TB_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="DMIO_TB_isim_beh.wdb"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DMIO_TB_stx_beh.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DMIO_beh.prj"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="DMIO_envsettings.html"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DMIO_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="DMIO_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="DMIO_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DM_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="IM.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="IM.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="IM.xst"/>
@@ -39,6 +66,8 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="SEU.prj"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="SEU.stx"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="SEU.xst"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="SEU_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="SEU_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
@@ -55,115 +84,148 @@
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="registerFile_envsettings.html"/>
     <file xil_pn:fileType="FILE_HTML" xil_pn:name="registerFile_summary.html"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="registerFile_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="registroLEDS.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="registroLEDS.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="registroLEDS.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="registroLEDS_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1573230226" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1573230226">
+    <transform xil_pn:end_ts="1573262178" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1573262178">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573231446" xil_pn:in_ck="-4672413551062400635" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1573231446">
+    <transform xil_pn:end_ts="1573327971" xil_pn:in_ck="-6044681854766622652" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1573327971">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="ALU.v"/>
+      <outfile xil_pn:name="ALU_TB.v"/>
+      <outfile xil_pn:name="CU.v"/>
+      <outfile xil_pn:name="CU_TB.v"/>
+      <outfile xil_pn:name="DM.v"/>
+      <outfile xil_pn:name="DMIO.v"/>
+      <outfile xil_pn:name="DMIO_TB.v"/>
+      <outfile xil_pn:name="IM.v"/>
+      <outfile xil_pn:name="PC.v"/>
+      <outfile xil_pn:name="SEU.v"/>
+      <outfile xil_pn:name="Semi_Procesador_64.v"/>
+      <outfile xil_pn:name="registerFile.v"/>
+      <outfile xil_pn:name="registroLEDS.v"/>
     </transform>
-    <transform xil_pn:end_ts="1573230747" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="2133674240748324994" xil_pn:start_ts="1573230747">
+    <transform xil_pn:end_ts="1573326824" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="794441047380712373" xil_pn:start_ts="1573326824">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573230747" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-7278077947684919904" xil_pn:start_ts="1573230747">
+    <transform xil_pn:end_ts="1573326824" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-3510352958418403981" xil_pn:start_ts="1573326824">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573230747" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-6729102136133106014" xil_pn:start_ts="1573230747">
+    <transform xil_pn:end_ts="1573262178" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-4065703832942124339" xil_pn:start_ts="1573262178">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573231446" xil_pn:in_ck="-4672413551062400635" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1573231446">
+    <transform xil_pn:end_ts="1573327971" xil_pn:in_ck="-6044681854766622652" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1573327971">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="ALU.v"/>
+      <outfile xil_pn:name="ALU_TB.v"/>
+      <outfile xil_pn:name="CU.v"/>
+      <outfile xil_pn:name="CU_TB.v"/>
+      <outfile xil_pn:name="DM.v"/>
+      <outfile xil_pn:name="DMIO.v"/>
+      <outfile xil_pn:name="DMIO_TB.v"/>
+      <outfile xil_pn:name="IM.v"/>
+      <outfile xil_pn:name="PC.v"/>
+      <outfile xil_pn:name="SEU.v"/>
+      <outfile xil_pn:name="Semi_Procesador_64.v"/>
+      <outfile xil_pn:name="registerFile.v"/>
+      <outfile xil_pn:name="registroLEDS.v"/>
     </transform>
-    <transform xil_pn:end_ts="1573231454" xil_pn:in_ck="-4672413551062400635" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-6395967981931406765" xil_pn:start_ts="1573231446">
+    <transform xil_pn:end_ts="1573327981" xil_pn:in_ck="-6044681854766622652" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="9167006359741343977" xil_pn:start_ts="1573327971">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="DMIO_TB_beh.prj"/>
+      <outfile xil_pn:name="DMIO_TB_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1573231456" xil_pn:in_ck="-4986855856825325734" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="4367674995505417622" xil_pn:start_ts="1573231454">
+    <transform xil_pn:end_ts="1573327982" xil_pn:in_ck="-8477380502173342506" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="7370796434712376268" xil_pn:start_ts="1573327981">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="DMIO_TB_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
     </transform>
-    <transform xil_pn:end_ts="1573161786" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1573161786">
+    <transform xil_pn:end_ts="1573274812" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1573274812">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573161786" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-9115967441279313094" xil_pn:start_ts="1573161786">
+    <transform xil_pn:end_ts="1573274812" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="6097836720529146334" xil_pn:start_ts="1573274812">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573161786" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-6729102136133106014" xil_pn:start_ts="1573161786">
+    <transform xil_pn:end_ts="1573274812" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-4065703832942124339" xil_pn:start_ts="1573274812">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573161786" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1573161786">
+    <transform xil_pn:end_ts="1573274812" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1573274812">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573161786" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-5716678420328109476" xil_pn:start_ts="1573161786">
+    <transform xil_pn:end_ts="1573274812" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="2905708003674895072" xil_pn:start_ts="1573274812">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573161786" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="3206529612922900429" xil_pn:start_ts="1573161786">
+    <transform xil_pn:end_ts="1573274812" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="8977612015859450356" xil_pn:start_ts="1573274812">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573161786" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="6506600779639705132" xil_pn:start_ts="1573161786">
+    <transform xil_pn:end_ts="1573274812" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="4086901897641036503" xil_pn:start_ts="1573274812">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1573239113" xil_pn:in_ck="7718235296993044182" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="3344009886675831007" xil_pn:start_ts="1573238944">
+    <transform xil_pn:end_ts="1573327738" xil_pn:in_ck="-5320191433937596778" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-6379320946673466884" xil_pn:start_ts="1573327645">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="DMIO.lso"/>
+      <outfile xil_pn:name="DMIO.ngc"/>
+      <outfile xil_pn:name="DMIO.ngr"/>
+      <outfile xil_pn:name="DMIO.prj"/>
+      <outfile xil_pn:name="DMIO.stx"/>
+      <outfile xil_pn:name="DMIO.syr"/>
+      <outfile xil_pn:name="DMIO.xst"/>
+      <outfile xil_pn:name="DMIO_TB_beh.prj"/>
+      <outfile xil_pn:name="DMIO_TB_stx_beh.prj"/>
+      <outfile xil_pn:name="DMIO_beh.prj"/>
+      <outfile xil_pn:name="DMIO_stx_beh.prj"/>
+      <outfile xil_pn:name="DMIO_xst.xrpt"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="registerFile.lso"/>
-      <outfile xil_pn:name="registerFile.ngc"/>
-      <outfile xil_pn:name="registerFile.ngr"/>
-      <outfile xil_pn:name="registerFile.prj"/>
-      <outfile xil_pn:name="registerFile.stx"/>
-      <outfile xil_pn:name="registerFile.syr"/>
-      <outfile xil_pn:name="registerFile.xst"/>
-      <outfile xil_pn:name="registerFile_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
