@@ -25,7 +25,7 @@ module SEU(
     );
 	 
 	 
-	 always @ (address, seu)
+	 always @ (seu)
 	 begin
 		 case(seu)
 		 00://Aluimmediate
@@ -50,7 +50,4 @@ module SEU(
 		 end
 		 endcase
 	 end
-	 
-	 
-	 assign bus_out= bus;
 endmodule

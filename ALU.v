@@ -26,7 +26,7 @@ module ALU(
     output reg [63:0] resultOP
     );
 	 
-	 always @ (aluOP, A, B)
+	 always @ (*)
 	 begin
 		case (aluOP)
 			3'b000: resultOP<=A+B;//SUMA		

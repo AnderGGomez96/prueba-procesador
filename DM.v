@@ -28,7 +28,6 @@ module DM(
     );
 	 reg [63:0] memoria [4095:0];
 	 integer i;
-	 reg [63:0] date = 64'h0;
 
 	 assign bus_dataRead=memoria[direccion];
 	 

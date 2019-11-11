@@ -32,13 +32,13 @@ module CU(
     output reg bus_pcSrc
     );
 	 
-	 always @ (zero, opcode)
+	 always @ (opcode)
 	 begin
 		case (opcode)   //11 bits
 			11'b10001011000: //ADD
 			begin
 				 bus_reg2loc<=1'b0;
-				 bus_seu<=2'b00; //<- XX
+				 bus_seu<=2'bxx; //<- XX
 				 bus_aluSrc<=1'b0;
 				 bus_aluOp<=3'b000;
 				 //memRd<=1'b0;
@@ -50,7 +50,7 @@ module CU(
 			11'b11001011000: //SUB
 			begin
 				 bus_reg2loc<=1'b0;
-				 bus_seu<=2'b00; //<- XX
+				 bus_seu<=2'bxx; //<- XX
 				 bus_aluSrc<=1'b0;
 				 bus_aluOp<=3'b001;
 				 //memRd<=1'b0;
@@ -62,7 +62,7 @@ module CU(
 			11'b10001010000://AND
 			begin
 				 bus_reg2loc<=1'b0;
-				 bus_seu<=2'b00; //<- XX
+				 bus_seu<=2'bxx; //<- XX
 				 bus_aluSrc<=1'b0;
 				 bus_aluOp<=3'b010;
 				 //memRd<=1'b0;
@@ -74,7 +74,7 @@ module CU(
 			11'b10101010000: //ORR
 			begin
 				 bus_reg2loc<=1'b0;
-				 bus_seu<=2'b00;//<- XX
+				 bus_seu<=2'bxx;//<- XX
 				 bus_aluSrc<=1'b0;
 				 bus_aluOp<=3'b011;
 				 //memRd<=1'b0;
@@ -85,7 +85,7 @@ module CU(
 			end
 			11'b11111000010://LDUR
 			begin
-				 bus_reg2loc<=1'b0; //X
+				 bus_reg2loc<=1'bx; //X
 				 bus_seu<=2'b01;
 				 bus_aluSrc<=1'b1;
 				 bus_aluOp<=3'b000;
@@ -103,19 +103,19 @@ module CU(
 				bus_aluOp<=3'b000;
 				//memRd<=1'b0;
 				bus_memWr<=1'b1;
-				bus_memToReg<=1'b0; //X
+				bus_memToReg<=1'bx; //X
 				bus_regWr<=1'b0;
 				bus_pcSrc<=1'b0;
 			end
 			11'b000101xxxxx://B
 			begin
-				bus_reg2loc<=1'b0; //X
+				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b10;
-				bus_aluSrc<=1'b0;  //X
-				bus_aluOp<=3'b000; //x
+				bus_aluSrc<=1'bx;  //X
+				bus_aluOp<=3'bxxx; //x
 				//memRd<=1'b0;
 				bus_memWr<=1'b0;
-				bus_memToReg<=1'b0; //x
+				bus_memToReg<=1'bx; //x
 				bus_regWr<=1'b0;
 				bus_pcSrc<=!zero; //
 			end
@@ -128,7 +128,7 @@ module CU(
 				bus_aluOp<=3'b100;
 				//memRd<=1'b0;
 				bus_memWr<=1'b0;
-				bus_memToReg<=1'b0; //X
+				bus_memToReg<=1'bx; //X
 				bus_regWr<=1'b0;
 				bus_pcSrc<=zero;
 			end
@@ -140,13 +140,13 @@ module CU(
 				bus_aluOp<=3'b100;
 				//memRd<=1'b0;
 				bus_memWr<=1'b0;
-				bus_memToReg<=1'b0;//X
+				bus_memToReg<=1'bx;//X
 				bus_regWr<=1'b0;
 				bus_pcSrc<=!zero;
 			end
 			11'b1001000100x: // ADDI
 			begin
-				bus_reg2loc<=1'b0; //X
+				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b00;
 				bus_aluSrc<=1'b1;
 				bus_aluOp<=3'b000;
@@ -158,7 +158,7 @@ module CU(
 			end
 			11'b1101000100x: //SUBI
 			begin
-				bus_reg2loc<=1'b0; //X
+				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b00;
 				bus_aluSrc<=1'b1;
 				bus_aluOp<=3'b001;
@@ -170,7 +170,7 @@ module CU(
 			end
 			11'b1001001000x: //ANDI
 			begin
-				bus_reg2loc<=1'b0; //X
+				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b00;
 				bus_aluSrc<=1'b1;
 				bus_aluOp<=3'b010;
@@ -182,7 +182,7 @@ module CU(
 			end
 			11'b1011001000x: //ORRI
 			begin
-				bus_reg2loc<=1'b0; //X
+				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b00;
 				bus_aluSrc<=1'b1;
 				bus_aluOp<=3'b011;
@@ -194,7 +194,7 @@ module CU(
 			end
 			default:
 			begin
-				bus_reg2loc<=1'b0; //X
+				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b00;
 				bus_aluSrc<=1'b0;
 				bus_aluOp<=3'b000;

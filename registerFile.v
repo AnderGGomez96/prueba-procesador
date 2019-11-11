@@ -43,7 +43,7 @@ module registerFile(
 		 end
 	  end
 
-	 always @ (posedge clk)
+	 always @ (posedge clk,regWR,dataWrite)
 	 begin
 		 if(regWR==1'd1) // se valida si se permite la escritura en el FF
 			Registros[Rd]<=dataWrite;

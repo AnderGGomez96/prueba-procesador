@@ -14,8 +14,6 @@ Compiling module registerFile
 Compiling module CU
 Compiling module SEU
 Compiling module ALU
-Compiling module DM
-Compiling module registroLEDS
 Compiling module DMIO
 Compiling module suma1
 Compiling module suma2
@@ -23,8 +21,8 @@ Compiling module Semi_Procesador_64
 Compiling module Procesador_TB
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 11 sub-compilation(s) to finish...
-Compiled 14 Verilog Units
+Waiting for 9 sub-compilation(s) to finish...
+Compiled 12 Verilog Units
 Built simulation executable C:/Users/Ghost/Desktop/Procesador/Procesador_TB_isim_beh.exe
-Fuse Memory Usage: 27896 KB
+Fuse Memory Usage: 27908 KB
 Fuse CPU Usage: 1250 ms

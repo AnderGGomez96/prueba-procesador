@@ -41,42 +41,58 @@ module Procesador_TB;
 	initial begin
 		// Initialize Inputs
 		clk = 1'b0;
-		SW = 8'hA;
+		SW = 8'h0;
 
 		// Wait 100 ns for global reset to finish
-		#300;
+		#100;
 		clk = 1'b1;
+		SW = 8'hA;
+		
+		#100;
+		clk = 1'b0;
 		SW = 8'h0;
 		
-		#300;
-		clk = 1'b0;
+		#100;
+		clk = 1'b1;
 		SW = 8'hF;
 		
-		#300;
-		clk = 1'b1;
-		SW = 8'h0;
-		
 	//LEDS	
-		#300;
+		#100;
 		clk = 1'b0; 
 		SW = 8'h0;
 		
-		#300;
+		#100;
 		clk = 1'b1;
 		SW = 8'h0;
 		
-		#300;
+		#100;
 		clk = 1'b0;
 		SW = 8'h0;
 		
-		#300;
+		#100;
 		clk = 1'b1;
 		SW = 8'h0;
 		
-		#300;
+		#100;
 		clk = 1'b0;
 		SW = 8'h0;
-		// Add stimulus here
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+////////////////LEDS///////////////		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		// Add stimulus here 
 
 	end 
       
