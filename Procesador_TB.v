@@ -46,7 +46,7 @@ module Procesador_TB;
 		// Wait 100 ns for global reset to finish
 		#100;
 		clk = 1'b1;
-		SW = 8'hA;
+		SW = 8'd2;
 		
 		#100;
 		clk = 1'b0;
@@ -54,12 +54,12 @@ module Procesador_TB;
 		
 		#100;
 		clk = 1'b1;
-		SW = 8'hF;
+		SW = 8'd4;
 		
 	//LEDS	
 		#100;
 		clk = 1'b0; 
-		SW = 8'h0;
+		SW = 8'h1;
 		
 		#100;
 		clk = 1'b1;
@@ -75,12 +75,60 @@ module Procesador_TB;
 		
 		#100;
 		clk = 1'b0;
+		SW = 8'h2;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
 		SW = 8'h0;
 		
 		#100;
 		clk = 1'b1;
 		SW = 8'h0;
-////////////////LEDS///////////////		
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h2;
+		
+				#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h3;
+		
+				#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h2;
+		
+				#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
 		#100;
 		clk = 1'b0;
 		SW = 8'h0;
@@ -92,8 +140,204 @@ module Procesador_TB;
 		#100;
 		clk = 1'b0;
 		SW = 8'h0;
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+						#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b1;
+		SW = 8'h0;
+		
+		#100;
+		clk = 1'b0;
+		SW = 8'h0;
+		
 		// Add stimulus here 
-
 	end 
       
 endmodule

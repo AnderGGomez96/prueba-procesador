@@ -45,8 +45,15 @@ module registerFile(
 
 	 always @ (posedge clk,regWR,dataWrite)
 	 begin
-		 if(regWR==1'd1) // se valida si se permite la escritura en el FF
-			Registros[Rd]<=dataWrite;
+		if (Rd==5'd31)
+			begin
+				Registros[Rd]<=64'd0;
+			end
+		else
+			begin
+				if(regWR==1'b1) // se valida si se permite la escritura en el FF
+				Registros[Rd]<=dataWrite;
+			end
 	 end
 	 
 	 	 //como la lectura es asincrona y se realiza en todo momento.

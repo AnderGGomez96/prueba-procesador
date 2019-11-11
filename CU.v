@@ -32,7 +32,7 @@ module CU(
     output reg bus_pcSrc
     );
 	 
-	 always @ (opcode)
+	 always @ (opcode, zero)
 	 begin
 		case (opcode)   //11 bits
 			11'b10001011000: //ADD
@@ -45,7 +45,7 @@ module CU(
 				 bus_memWr<=1'b0;
 				 bus_memToReg<=1'b0;
 				 bus_regWr<=1'b1;
-				 bus_pcSrc<=1'b0;
+				 bus_pcSrc<=zero;
 			end
 			11'b11001011000: //SUB
 			begin
@@ -57,7 +57,7 @@ module CU(
 				 bus_memWr<=1'b0;
 				 bus_memToReg<=1'b0;
 				 bus_regWr<=1'b1;
-				 bus_pcSrc<=1'b0;
+				 bus_pcSrc<=zero;
 			end
 			11'b10001010000://AND
 			begin
@@ -69,7 +69,7 @@ module CU(
 				 bus_memWr<=1'b0;
 				 bus_memToReg<=1'b0;
 				 bus_regWr<=1'b1;
-				 bus_pcSrc<=1'b0;
+				 bus_pcSrc<=zero;
 			end
 			11'b10101010000: //ORR
 			begin
@@ -81,7 +81,7 @@ module CU(
 				 bus_memWr<=1'b0;
 				 bus_memToReg<=1'b0;
 				 bus_regWr<=1'b1;
-				 bus_pcSrc<=1'b0;
+				 bus_pcSrc<=zero;
 			end
 			11'b11111000010://LDUR
 			begin
@@ -93,7 +93,7 @@ module CU(
 				 bus_memWr<=1'b0;
 				 bus_memToReg<=1'b1;
 				 bus_regWr<=1'b1;
-				 bus_pcSrc<=1'b0;
+				 bus_pcSrc<=zero;
 			end
 			11'b11111000000://STUR
 			begin
@@ -105,7 +105,7 @@ module CU(
 				bus_memWr<=1'b1;
 				bus_memToReg<=1'bx; //X
 				bus_regWr<=1'b0;
-				bus_pcSrc<=1'b0;
+				bus_pcSrc<=zero;
 			end
 			11'b000101xxxxx://B
 			begin
@@ -154,7 +154,7 @@ module CU(
 				bus_memWr<=1'b0;
 				bus_memToReg<=1'b0;
 				bus_regWr<=1'b1;
-				bus_pcSrc<=1'b0;				
+				bus_pcSrc<=zero;				
 			end
 			11'b1101000100x: //SUBI
 			begin
@@ -166,7 +166,7 @@ module CU(
 				bus_memWr<=1'b0;
 				bus_memToReg<=1'b0;
 				bus_regWr<=1'b1;
-				bus_pcSrc<=1'b0;
+				bus_pcSrc<=zero;
 			end
 			11'b1001001000x: //ANDI
 			begin
@@ -178,7 +178,7 @@ module CU(
 				bus_memWr<=1'b0;
 				bus_memToReg<=1'b0;
 				bus_regWr<=1'b1;
-				bus_pcSrc<=1'b0;
+				bus_pcSrc<=zero;
 			end
 			11'b1011001000x: //ORRI
 			begin
@@ -190,11 +190,35 @@ module CU(
 				bus_memWr<=1'b0;
 				bus_memToReg<=1'b0;
 				bus_regWr<=1'b1;
-				bus_pcSrc<=1'b0;
+				bus_pcSrc<=zero;
+			end
+			11'b11010011011: //LSL
+			begin
+				bus_reg2loc<=1'bx; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b101;
+				//memRd<=1'b0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=zero;
+			end		
+			11'b11010011010:  //LSR
+			begin
+				bus_reg2loc<=1'bx; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b110;
+				//memRd<=1'b0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=zero;
 			end
 			default:
 			begin
-				bus_reg2loc<=1'bx; //X
+				bus_reg2loc<=1'b0; //X
 				bus_seu<=2'b00;
 				bus_aluSrc<=1'b0;
 				bus_aluOp<=3'b000;
@@ -202,7 +226,7 @@ module CU(
 				bus_memWr<=1'b0;
 				bus_memToReg<=1'b1;
 				bus_regWr<=1'b0;
-				bus_pcSrc<=1'b0;
+				bus_pcSrc<=zero;
 			end
 		endcase
 	 end

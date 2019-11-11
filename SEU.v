@@ -44,10 +44,6 @@ module SEU(
 		 begin
 			bus<={{43{address[23]}},address[23:5],2'b00};
 		 end
-		 default
-		 begin
-			bus<={{36{address[25]}},address[25:0]};
-		 end
 		 endcase
 	 end
 endmodule

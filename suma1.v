@@ -19,8 +19,8 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module suma1(
-    input [63:0] bus_direccion_im,
-    input [63:0] bus_out,
+    input wire [63:0] bus_direccion_im,
+    input wire [63:0] bus_out,
     output [63:0] result_suma
     );
 	 assign result_suma = bus_direccion_im+bus_out;

@@ -20,8 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 module ALU(
     input [2:0] aluOP,
-    input [63:0] A,
-    input [63:0] B,
+    input wire signed [63:0] A,
+    input wire signed [63:0] B,
     output zero,
     output reg [63:0] resultOP
     );
@@ -35,12 +35,14 @@ module ALU(
 			3'b011:resultOP<=A|B;// ORR
 			3'b100://pass B
 			begin
-				if (B==64'h0000000000000000)
-					resultOP<=64'h0000000000000000;
+				if (B==64'd0)
+					resultOP<=64'd0;
 				else
-					resultOP<=64'hFFFFFFFFFFFFFFFF;
+					resultOP<=64'd1;
 			end
+			3'b101: resultOP<=A <<< B[15:10];//LSL
+			3'b110: resultOP<=A >>> B[15:10];//LSR
 		endcase
 	 end
-	 assign zero = (resultOP == 64'h0000000000000000)? 1'b1:1'b0;
+	 assign zero = (resultOP == 64'd0)? 1'b1:1'b0;
 endmodule
