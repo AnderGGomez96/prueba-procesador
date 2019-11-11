@@ -21,9 +21,10 @@
 module SEU(
     input [25:0] address,
     input [1:0] seu,
-    output [63:0] bus_out
+    output reg [63:0] bus
     );
-	 reg [63:0] bus;
+	 
+	 
 	 always @ (address, seu)
 	 begin
 		 case(seu)
@@ -37,13 +38,19 @@ module SEU(
 		 end
 		 10:
 		 begin //Branch_Address
-			bus<={{36{address[25]}},address};
+			bus<={{36{address[25]}},address[25:0]};
 		 end
 		 11: //Cond_Branch_Address
 		 begin
 			bus<={{43{address[23]}},address[23:5],2'b00};
 		 end
+		 default
+		 begin
+			bus<={{36{address[25]}},address[25:0]};
+		 end
 		 endcase
 	 end
+	 
+	 
 	 assign bus_out= bus;
 endmodule

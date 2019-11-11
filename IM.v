@@ -37,15 +37,18 @@ module IM(
 	 // memoria de instrucciones [columnas] y [filas]; 512 registros de 32 bits
 	 reg [31:0] rom [511:0];
 	 //Valores iniciales.
+	 integer i;
 	 initial
-	 begin //Aqui colocar las instrucciones.
-		 rom[0]=32'hFFFF;
-		 rom[1]=32'hFFFF;
-		 rom[2]=32'hFFFF;
-		 rom[3]=32'hFFFF;
-		 rom[4]=32'hFFFF;
-		 rom[5]=32'hFFFF;
+	 begin
+		for (i=0; i<512;i=i+1)
+			rom[i]<=32'h0;
+			
+		 rom[0]<=32'hF84002A0;
+		 rom[1]<=32'hF84002A1;
+		 rom[2]<=32'hF80002A0;
+		 rom[3]<=32'hF80002A1;
 	 end
+	 
 	 
 	 assign instruction=rom[busPc[10:2]];
 endmodule

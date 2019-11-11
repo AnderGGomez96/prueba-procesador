@@ -23,10 +23,8 @@ module ALU(
     input [63:0] A,
     input [63:0] B,
     output zero,
-    output [63:0] bus_resultOP
+    output reg [63:0] resultOP
     );
-	 
-	 reg [63:0]resultOP;
 	 
 	 always @ (aluOP, A, B)
 	 begin
@@ -37,13 +35,12 @@ module ALU(
 			3'b011:resultOP<=A|B;// ORR
 			3'b100://pass B
 			begin
-				if (B==64'h0)
-					resultOP<=64'h00000000;
+				if (B==64'h0000000000000000)
+					resultOP<=64'h0000000000000000;
 				else
-					resultOP<=64'hFFFFFFFF;
+					resultOP<=64'hFFFFFFFFFFFFFFFF;
 			end
 		endcase
 	 end
-	 assign zero = (resultOP == 64'h00000000)? 1'b1:1'b0;
-	 assign bus_resultOP=resultOP;
+	 assign zero = (resultOP == 64'h0000000000000000)? 1'b1:1'b0;
 endmodule

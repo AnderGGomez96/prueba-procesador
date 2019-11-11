@@ -36,20 +36,21 @@ module DM(
 	 begin
 		if ((enableWr & bitAddress)==1'b1)
 		begin
-			memoria[direccion]=dataWrite;
+			memoria[direccion]<=dataWrite;
 		end
 	 end
 	 
 	 
 	 
-	 
+	 /*
 	 initial
 	 begin 
 
 		for (i=0; i<256; i=i+1)
 		begin
-			memoria[i]=date;
-			date=date+4;
+			memoria[i]<=date;
+			date<=date+4;
 		end
 	 end
+	 */
 endmodule

@@ -21,201 +21,189 @@
 module CU(
     input  zero,
     input  [10:0] opcode,
-    output bus_reg2loc,
-    output [1:0] bus_seu,
-    output bus_aluSrc,
-    output [2:0] bus_aluOp,
+    output reg bus_reg2loc,
+    output reg [1:0] bus_seu,
+    output reg bus_aluSrc,
+    output reg [2:0] bus_aluOp,
     //output bus_memRd,
-    output bus_memWr,
-    output bus_memToReg,
-    output bus_regWr,
-    output bus_pcSrc
+    output reg bus_memWr,
+    output reg bus_memToReg,
+    output reg bus_regWr,
+    output reg bus_pcSrc
     );
-	reg reg2loc;
-	reg [1:0] seu;
-	reg aluSrc;
-	reg [2:0] aluOp;
-	//reg memRd;
-	reg memWr;
-	reg memToReg;
-	reg regWr;
-	reg pcSrc;
 	 
 	 always @ (zero, opcode)
 	 begin
 		case (opcode)   //11 bits
 			11'b10001011000: //ADD
 			begin
-				 reg2loc<=1'b0;
-				 seu<=2'bxx; //<- XX
-				 aluSrc<=1'b0;
-				 aluOp<=3'b000;
+				 bus_reg2loc<=1'b0;
+				 bus_seu<=2'b00; //<- XX
+				 bus_aluSrc<=1'b0;
+				 bus_aluOp<=3'b000;
 				 //memRd<=1'b0;
-				 memWr<=1'b0;
-				 memToReg<=1'b0;
-				 regWr<=1'b1;
-				 pcSrc<=0;
+				 bus_memWr<=1'b0;
+				 bus_memToReg<=1'b0;
+				 bus_regWr<=1'b1;
+				 bus_pcSrc<=1'b0;
 			end
 			11'b11001011000: //SUB
 			begin
-				 reg2loc<=1'b0;
-				 seu<=2'bxx; //<- XX
-				 aluSrc<=1'b0;
-				 aluOp<=3'b001;
+				 bus_reg2loc<=1'b0;
+				 bus_seu<=2'b00; //<- XX
+				 bus_aluSrc<=1'b0;
+				 bus_aluOp<=3'b001;
 				 //memRd<=1'b0;
-				 memWr<=1'b0;
-				 memToReg<=1'b0;
-				 regWr<=1'b1;
-				 pcSrc<=0;
+				 bus_memWr<=1'b0;
+				 bus_memToReg<=1'b0;
+				 bus_regWr<=1'b1;
+				 bus_pcSrc<=1'b0;
 			end
 			11'b10001010000://AND
 			begin
-				 reg2loc<=1'b0;
-				 seu<=2'bxx; //<- XX
-				 aluSrc<=1'b0;
-				 aluOp<=3'b010;
+				 bus_reg2loc<=1'b0;
+				 bus_seu<=2'b00; //<- XX
+				 bus_aluSrc<=1'b0;
+				 bus_aluOp<=3'b010;
 				 //memRd<=1'b0;
-				 memWr<=1'b0;
-				 memToReg<=1'b0;
-				 regWr<=1'b1;
-				 pcSrc<=0;
+				 bus_memWr<=1'b0;
+				 bus_memToReg<=1'b0;
+				 bus_regWr<=1'b1;
+				 bus_pcSrc<=1'b0;
 			end
 			11'b10101010000: //ORR
 			begin
-				 reg2loc<=1'b0;
-				 seu<=2'bxx;//<- XX
-				 aluSrc<=1'b0;
-				 aluOp<=3'b011;
+				 bus_reg2loc<=1'b0;
+				 bus_seu<=2'b00;//<- XX
+				 bus_aluSrc<=1'b0;
+				 bus_aluOp<=3'b011;
 				 //memRd<=1'b0;
-				 memWr<=1'b0;
-				 memToReg<=1'b0;
-				 regWr<=1'b1;
-				 pcSrc<=0;
+				 bus_memWr<=1'b0;
+				 bus_memToReg<=1'b0;
+				 bus_regWr<=1'b1;
+				 bus_pcSrc<=1'b0;
 			end
 			11'b11111000010://LDUR
 			begin
-				 reg2loc<=1'bx; //X
-				 seu<=2'b01;
-				 aluSrc<=1'b1;
-				 aluOp<=3'b000;
+				 bus_reg2loc<=1'b0; //X
+				 bus_seu<=2'b01;
+				 bus_aluSrc<=1'b1;
+				 bus_aluOp<=3'b000;
 				 //memRd<=1'b1;
-				 memWr<=1'b0;
-				 memToReg<=1'b1;
-				 regWr<=1'b1;
-				 pcSrc<=0;
+				 bus_memWr<=1'b0;
+				 bus_memToReg<=1'b1;
+				 bus_regWr<=1'b1;
+				 bus_pcSrc<=1'b0;
 			end
 			11'b11111000000://STUR
 			begin
-				reg2loc<=1'b1;
-				seu<=2'b01;
-				aluSrc<=1'b1;
-				aluOp<=3'b000;
+				bus_reg2loc<=1'b1;
+				bus_seu<=2'b01;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b000;
 				//memRd<=1'b0;
-				memWr<=1'b1;
-				memToReg<=1'bx; //X
-				regWr<=1'b0;
-				pcSrc<=0;
+				bus_memWr<=1'b1;
+				bus_memToReg<=1'b0; //X
+				bus_regWr<=1'b0;
+				bus_pcSrc<=1'b0;
 			end
-		endcase
-		case(opcode[10:5]) //6 bits
-			6'b000101://B
+			11'b000101xxxxx://B
 			begin
-				reg2loc<=1'bx; //X
-				seu<=2'b10;
-				aluSrc<=1'bx;  //X
-				aluOp<=3'bxxx; //x
+				bus_reg2loc<=1'b0; //X
+				bus_seu<=2'b10;
+				bus_aluSrc<=1'b0;  //X
+				bus_aluOp<=3'b000; //x
 				//memRd<=1'b0;
-				memWr<=1'b0;
-				memToReg<=1'bx; //x
-				regWr<=1'b0;
-				pcSrc<=!zero; //
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0; //x
+				bus_regWr<=1'b0;
+				bus_pcSrc<=!zero; //
 			end
-		endcase
-		case(opcode[10:3]) //8 bits
-			8'b10110100://CBZ
+			
+			11'b10110100xxx://CBZ
 			begin
-				reg2loc<=1'b1;
-				seu<=2'b11;
-				aluSrc<=1'b0;
-				aluOp<=3'b100;
+				bus_reg2loc<=1'b1;
+				bus_seu<=2'b11;
+				bus_aluSrc<=1'b0;
+				bus_aluOp<=3'b100;
 				//memRd<=1'b0;
-				memWr<=1'b0;
-				memToReg<=1'bx; //X
-				regWr<=1'b0;
-				pcSrc<=zero;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0; //X
+				bus_regWr<=1'b0;
+				bus_pcSrc<=zero;
 			end
-			8'b10110101://CBNZ
+			11'b10110101xxx://CBNZ
 			begin
-				reg2loc<=1'b1;
-				seu<=2'b11;
-				aluSrc<=1'b0;
-				aluOp<=3'b100;
+				bus_reg2loc<=1'b1;
+				bus_seu<=2'b11;
+				bus_aluSrc<=1'b0;
+				bus_aluOp<=3'b100;
 				//memRd<=1'b0;
-				memWr<=1'b0;
-				memToReg<=1'bx;//X
-				regWr<=1'b0;
-				pcSrc<=!zero;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;//X
+				bus_regWr<=1'b0;
+				bus_pcSrc<=!zero;
 			end
-		endcase
-		case (opcode[10:1])
-			10'b1001000100: // ADDI
+			11'b1001000100x: // ADDI
 			begin
-				reg2loc<=1'bx; //X
-				seu<=2'b00;
-				aluSrc<=1'b1;
-				aluOp<=3'b000;
+				bus_reg2loc<=1'b0; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b000;
 				//memRd<=1'b0;
-				memWr<=1'b0;
-				memToReg<=1'b0;
-				regWr<=1'b1;
-				pcSrc<=0;				
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=1'b0;				
 			end
-			10'b1101000100: //SUBI
+			11'b1101000100x: //SUBI
 			begin
-				reg2loc<=1'bx; //X
-				seu<=2'b00;
-				aluSrc<=1'b1;
-				aluOp<=3'b001;
+				bus_reg2loc<=1'b0; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b001;
 				//memRd<=1'b0;
-				memWr<=1'b0;
-				memToReg<=1'b0;
-				regWr<=1'b1;
-				pcSrc<=0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=1'b0;
 			end
-			10'b1001001000: //ANDI
+			11'b1001001000x: //ANDI
 			begin
-				reg2loc<=1'bx; //X
-				seu<=2'b00;
-				aluSrc<=1'b1;
-				aluOp<=3'b010;
+				bus_reg2loc<=1'b0; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b010;
 				//memRd<=1'b0;
-				memWr<=1'b0;
-				memToReg<=1'b0;
-				regWr<=1'b1;
-				pcSrc<=0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=1'b0;
 			end
-			10'b1011001000: //ORRI
+			11'b1011001000x: //ORRI
 			begin
-				reg2loc<=1'bx; //X
-				seu<=2'b00;
-				aluSrc<=1'b1;
-				aluOp<=3'b011;
+				bus_reg2loc<=1'b0; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b011;
 				//memRd<=1'b0;
-				memWr<=1'b0;
-				memToReg<=1'b0;
-				regWr<=1'b1;
-				pcSrc<=0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=1'b0;
+			end
+			default:
+			begin
+				bus_reg2loc<=1'b0; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b0;
+				bus_aluOp<=3'b000;
+				//memRd<=1'b0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b1;
+				bus_regWr<=1'b0;
+				bus_pcSrc<=1'b0;
 			end
 		endcase
 	 end
-
-	assign bus_reg2loc=reg2loc;
-	assign bus_seu=seu;
-	assign bus_aluSrc=aluSrc;
-	assign bus_aluOp=aluOp;
-	//assign bus_memRd=memRd;
-	assign bus_memWr=memWr;
-	assign bus_memToReg=memToReg;
-	assign bus_regWr=regWr;
-	assign bus_pcSrc=pcSrc;
 endmodule

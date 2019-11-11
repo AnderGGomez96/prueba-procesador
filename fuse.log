@@ -1,21 +1,30 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/Ghost/Desktop/Procesador/DMIO_TB_isim_beh.exe -prj C:/Users/Ghost/Desktop/Procesador/DMIO_TB_beh.prj work.DMIO_TB work.glbl 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/Ghost/Desktop/Procesador/Procesador_TB_isim_beh.exe" -prj "C:/Users/Ghost/Desktop/Procesador/Procesador_TB_beh.prj" "work.Procesador_TB" "work.glbl" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
-Analyzing Verilog file "C:/Users/Ghost/Desktop/Procesador/DMIO.v" into library work
-Analyzing Verilog file "C:/Users/Ghost/Desktop/Procesador/DMIO_TB.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Desktop/Procesador/Semi_Procesador_64.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Desktop/Procesador/Procesador_TB.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
+Compiling module PC
+Compiling module IM
+Compiling module registerFile
+Compiling module CU
+Compiling module SEU
+Compiling module ALU
 Compiling module DM
 Compiling module registroLEDS
 Compiling module DMIO
-Compiling module DMIO_TB
+Compiling module suma1
+Compiling module suma2
+Compiling module Semi_Procesador_64
+Compiling module Procesador_TB
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 2 sub-compilation(s) to finish...
-Compiled 5 Verilog Units
-Built simulation executable C:/Users/Ghost/Desktop/Procesador/DMIO_TB_isim_beh.exe
-Fuse Memory Usage: 27568 KB
-Fuse CPU Usage: 1093 ms
+Waiting for 11 sub-compilation(s) to finish...
+Compiled 14 Verilog Units
+Built simulation executable C:/Users/Ghost/Desktop/Procesador/Procesador_TB_isim_beh.exe
+Fuse Memory Usage: 27896 KB
+Fuse CPU Usage: 1250 ms

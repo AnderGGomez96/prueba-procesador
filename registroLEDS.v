@@ -28,7 +28,7 @@ module registroLEDS(
 	 reg [7:0] registro;
 	 initial
 	 begin
-		registro=8'h0;
+		registro<=8'h0;
 	 end
 	 
 	 always @ (posedge clk)

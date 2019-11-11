@@ -22,7 +22,7 @@
 `include "registroLEDS.v"
 module DMIO(
 	 input wire clk,
-    input wire [12:0] direccion,
+    input wire [63:0] direccion,
     input wire [63:0] dataWrite,
     input wire [7:0] sw,
     input wire memWr,
@@ -34,6 +34,6 @@ module DMIO(
 	 DM dataMemory(clk,direccion[11:0],dataWrite,memWr,!direccion[12],lecturaMemoria);
 	 registroLEDS led (clk,dataWrite[7:0],memWr,direccion[12],lecturaLED);
 	 
-	 assign dataRead = (direccion[12]==1)? {56'b0,sw}:lecturaMemoria;
+	 assign dataRead = (direccion[12]==1'b1) ? {56'b0,sw} : lecturaMemoria;
 	 
 endmodule

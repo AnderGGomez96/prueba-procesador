@@ -1,3 +1,2 @@
-verilog work "DMIO.v"
 verilog work "DMIO_TB.v"
 verilog work "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

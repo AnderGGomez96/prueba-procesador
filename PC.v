@@ -20,23 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 module PC(
     input clk,
-    input [63:0] newDireccion,
-    output [63:0] bus_DireccionIM
+    input  [63:0] newDirection,
+    output reg [63:0] bus_DireccionIM
     );
-	 reg [63:0] DireccionIM;
-	 reg [63:0] registro;
-	 
 	 
 	 initial
 	 begin
-		registro=64'h0;
+		bus_DireccionIM<=64'd0;
 	 end
 	 
-	 always @(posedge clk)
+	 always @ (posedge clk)
 	 begin
-		DireccionIM<=registro;
-		registro<=newDireccion;
+		bus_DireccionIM<=newDirection;
 	 end
-	 
-	 assign bus_DireccionIM = newDireccion;
 endmodule

@@ -4,9 +4,9 @@
 // Company: 
 // Engineer:
 //
-// Create Date:   11:31:25 11/08/2019
+// Create Date:   14:59:59 11/09/2019
 // Design Name:   IM
-// Module Name:   C:/Users/Ghost/Documents/Anderson/Procesador/IM_tb.v
+// Module Name:   C:/Users/Ghost/Desktop/Procesador/IM_TB.v
 // Project Name:  Procesador
 // Target Device:  
 // Tool versions:  
@@ -22,13 +22,13 @@
 // 
 ////////////////////////////////////////////////////////////////////////////////
 
-module IM_tb;
+module IM_TB;
 
 	// Inputs
-	reg [7:0] busPc;
+	reg [63:0] busPc;
 
 	// Outputs
-	wire [7:0] instruction;
+	wire [31:0] instruction;
 
 	// Instantiate the Unit Under Test (UUT)
 	IM uut (
@@ -42,7 +42,6 @@ module IM_tb;
 
 		// Wait 100 ns for global reset to finish
 		#20;
-		busPc= 8'd1;
         
 		// Add stimulus here
 

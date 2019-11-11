@@ -28,21 +28,30 @@ module registerFile(
     output [63:0] dataRn,
     output [63:0] dataRm
     );
-	 
+	 integer i;
 	 //se crean 32 Registros de 64 bits.
-	 reg [63:0] Registros [31:0]; 
+	 reg [63:0] Registros [31:0];
+
+	 initial 
+	  begin
+		 for(i=0;i<32;i=i+1)
+		 begin
+			if (i==21)
+				Registros[i]<=64'h0000000000001000;
+			else
+				Registros[i]<=64'h0000000000000000;
+		 end
+	  end
+
+	 always @ (posedge clk)
+	 begin
+		 if(regWR==1'd1) // se valida si se permite la escritura en el FF
+			Registros[Rd]<=dataWrite;
+	 end
 	 
-	 //como la lectura es asincrona y se realiza en todo momento.
+	 	 //como la lectura es asincrona y se realiza en todo momento.
 	 //se asigna el contenido del FF Rn al bus de datos dataRn.
 	 assign dataRn = Registros[Rn];
 	 assign dataRm = Registros[Rm];
 	 
-	 always @ (posedge clk)
-	 begin
-	 if(regWR) // se valida si se permite la escritura en el FF
-		if(Rd != 5'b11111) // si Rd (registro destino) es diferente de 31 se escribe la informacion
-			Registros[Rd]<= dataWrite;
-		else
-			Registros[31]<=64'b0; // si Rd es 31, se escribe ceros (0)
-	 end
 endmodule
