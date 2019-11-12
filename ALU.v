@@ -22,27 +22,47 @@ module ALU(
     input [2:0] aluOP,
     input wire signed [63:0] A,
     input wire signed [63:0] B,
-    output zero,
+    output reg zero,
     output reg [63:0] resultOP
     );
 	 
 	 always @ (*)
 	 begin
 		case (aluOP)
-			3'b000: resultOP<=A+B;//SUMA		
-			3'b001: resultOP<=A-B;//RESTA
-			3'b010: resultOP<=A&B;// AND
-			3'b011:resultOP<=A|B;// ORR
+			3'b000: 
+			begin 
+				resultOP<=A+B;//SUMA		
+				zero<=1'b0;
+			end
+			3'b001: 
+			begin
+				resultOP<=A-B;//RESTA
+				zero<=1'b0;
+			end
+			3'b010: 
+			begin 
+				resultOP<=A&B;// AND
+				zero<=1'b0;
+			end
+			3'b011:
+			begin
+				resultOP<=A|B;// ORR
+				zero<=1'b0;
+			end
 			3'b100://pass B
 			begin
-				if (B==64'd0)
-					resultOP<=64'd0;
-				else
-					resultOP<=64'd1;
+				zero<= (B == 64'h0) ? 1'b1:1'b0;
 			end
-			3'b101: resultOP<=A <<< B[15:10];//LSL
-			3'b110: resultOP<=A >>> B[15:10];//LSR
+			3'b101: 
+			begin 
+				resultOP<=A <<< B[15:10];//LSL
+				zero<=1'b0;
+			end
+			3'b110: 
+			begin 
+				resultOP<=A >>> B[15:10];//LSR
+				zero<=1'b0;
+			end
 		endcase
 	 end
-	 assign zero = (resultOP == 64'd0)? 1'b1:1'b0;
 endmodule

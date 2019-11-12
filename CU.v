@@ -32,7 +32,7 @@ module CU(
     output reg bus_pcSrc
     );
 	 
-	 always @ (opcode, zero)
+	 always @ (*)
 	 begin
 		case (opcode)   //11 bits
 			11'b10001011000: //ADD
@@ -107,91 +107,6 @@ module CU(
 				bus_regWr<=1'b0;
 				bus_pcSrc<=zero;
 			end
-			11'b000101xxxxx://B
-			begin
-				bus_reg2loc<=1'bx; //X
-				bus_seu<=2'b10;
-				bus_aluSrc<=1'bx;  //X
-				bus_aluOp<=3'bxxx; //x
-				//memRd<=1'b0;
-				bus_memWr<=1'b0;
-				bus_memToReg<=1'bx; //x
-				bus_regWr<=1'b0;
-				bus_pcSrc<=!zero; //
-			end
-			
-			11'b10110100xxx://CBZ
-			begin
-				bus_reg2loc<=1'b1;
-				bus_seu<=2'b11;
-				bus_aluSrc<=1'b0;
-				bus_aluOp<=3'b100;
-				//memRd<=1'b0;
-				bus_memWr<=1'b0;
-				bus_memToReg<=1'bx; //X
-				bus_regWr<=1'b0;
-				bus_pcSrc<=zero;
-			end
-			11'b10110101xxx://CBNZ
-			begin
-				bus_reg2loc<=1'b1;
-				bus_seu<=2'b11;
-				bus_aluSrc<=1'b0;
-				bus_aluOp<=3'b100;
-				//memRd<=1'b0;
-				bus_memWr<=1'b0;
-				bus_memToReg<=1'bx;//X
-				bus_regWr<=1'b0;
-				bus_pcSrc<=!zero;
-			end
-			11'b1001000100x: // ADDI
-			begin
-				bus_reg2loc<=1'bx; //X
-				bus_seu<=2'b00;
-				bus_aluSrc<=1'b1;
-				bus_aluOp<=3'b000;
-				//memRd<=1'b0;
-				bus_memWr<=1'b0;
-				bus_memToReg<=1'b0;
-				bus_regWr<=1'b1;
-				bus_pcSrc<=zero;				
-			end
-			11'b1101000100x: //SUBI
-			begin
-				bus_reg2loc<=1'bx; //X
-				bus_seu<=2'b00;
-				bus_aluSrc<=1'b1;
-				bus_aluOp<=3'b001;
-				//memRd<=1'b0;
-				bus_memWr<=1'b0;
-				bus_memToReg<=1'b0;
-				bus_regWr<=1'b1;
-				bus_pcSrc<=zero;
-			end
-			11'b1001001000x: //ANDI
-			begin
-				bus_reg2loc<=1'bx; //X
-				bus_seu<=2'b00;
-				bus_aluSrc<=1'b1;
-				bus_aluOp<=3'b010;
-				//memRd<=1'b0;
-				bus_memWr<=1'b0;
-				bus_memToReg<=1'b0;
-				bus_regWr<=1'b1;
-				bus_pcSrc<=zero;
-			end
-			11'b1011001000x: //ORRI
-			begin
-				bus_reg2loc<=1'bx; //X
-				bus_seu<=2'b00;
-				bus_aluSrc<=1'b1;
-				bus_aluOp<=3'b011;
-				//memRd<=1'b0;
-				bus_memWr<=1'b0;
-				bus_memToReg<=1'b0;
-				bus_regWr<=1'b1;
-				bus_pcSrc<=zero;
-			end
 			11'b11010011011: //LSL
 			begin
 				bus_reg2loc<=1'bx; //X
@@ -216,18 +131,102 @@ module CU(
 				bus_regWr<=1'b1;
 				bus_pcSrc<=zero;
 			end
-			default:
+		endcase
+			
+		case (opcode [10:5])
+			6'b000101://B
 			begin
-				bus_reg2loc<=1'b0; //X
-				bus_seu<=2'b00;
-				bus_aluSrc<=1'b0;
-				bus_aluOp<=3'b000;
+				bus_reg2loc<=1'bx; //X
+				bus_seu<=2'b10;
+				bus_aluSrc<=1'bx;  //X
+				bus_aluOp<=3'bxxx; //x
 				//memRd<=1'b0;
 				bus_memWr<=1'b0;
-				bus_memToReg<=1'b1;
+				bus_memToReg<=1'bx; //x
+				bus_regWr<=1'b0;
+				bus_pcSrc<=!zero; //
+			end
+		endcase
+		
+		case(opcode[10:3])
+			8'b10110100://CBZ
+			begin
+				bus_reg2loc<=1'b1;
+				bus_seu<=2'b11;
+				bus_aluSrc<=1'b0;
+				bus_aluOp<=3'b100;
+				//memRd<=1'b0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'bx; //X
 				bus_regWr<=1'b0;
 				bus_pcSrc<=zero;
 			end
+			8'b10110101://CBNZ
+			begin
+				bus_reg2loc<=1'b1;
+				bus_seu<=2'b11;
+				bus_aluSrc<=1'b0;
+				bus_aluOp<=3'b100;
+				//memRd<=1'b0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'bx;//X
+				bus_regWr<=1'b0;
+				bus_pcSrc<=!zero;
+			end
+		endcase	
+			
+		case (opcode[10:1])
+			10'b1001000100: // ADDI
+			begin
+				bus_reg2loc<=1'bx; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b000;
+				//memRd<=1'b0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=zero;				
+			end
+			10'b1101000100: //SUBI
+			begin
+				bus_reg2loc<=1'bx; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b001;
+				//memRd<=1'b0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=zero;
+			end
+			10'b1001001000: //ANDI
+			begin
+				bus_reg2loc<=1'bx; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b010;
+				//memRd<=1'b0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=zero;
+			end
+			10'b1011001000: //ORRI
+			begin
+				bus_reg2loc<=1'bx; //X
+				bus_seu<=2'b00;
+				bus_aluSrc<=1'b1;
+				bus_aluOp<=3'b011;
+				//memRd<=1'b0;
+				bus_memWr<=1'b0;
+				bus_memToReg<=1'b0;
+				bus_regWr<=1'b1;
+				bus_pcSrc<=zero;
+			end
 		endcase
+		
+		
+		
 	 end
 endmodule

@@ -41,24 +41,28 @@ module IM(
 	 initial
 	 begin
 		for (i=0; i<512;i=i+1)
-			rom[i]<=32'h0;
+			rom[i]<=32'd0;
 			
 		 rom[0]<=32'hF84002A0;
 		 rom[1]<=32'hF84002A1;
 		 rom[2]<=32'h8B000023;
-		 rom[3]<=32'hF80002A3;
+		 rom[3]<=32'hB4000042;
+		 rom[4]<=32'hF80002A3;
+		 rom[5]<=32'hF80002A0;
+		 rom[6]<=32'h17FFFFFE;
+		 
 		 /*rom[0]<=32'hF84002A0;
 		 rom[1]<=32'hF84002A1;
-		// rom[2]<=32'hAA1F0129;
+		 //rom[2]<=32'hAA1F0129;
 		 //rom[3]<=32'hAA1F014A;
 		 rom[2]<=32'hCB090024;
-		 rom[3]<=32'hB400008A;
+		 rom[3]<=32'hB4000084;
 		 rom[4]<=32'h8B00014A;
 		 rom[5]<=32'h91000529;
 		 rom[6]<=32'h17FFFFFC;
-		 rom[7]<=32'hF80002AA;*/
+		 rom[7]<=32'hF80002AA;
+		 rom[8]<=32'hF80002A0;
+		 rom[9]<=32'hF80002A1;*/
 	 end
-	 
-	 
-	 assign instruction=rom[busPc[10:2]];
+	assign instruction=rom[busPc[10:2]];
 endmodule

@@ -35,7 +35,7 @@ module DMIO(
 		registro<=8'd0;
 	 end
 		
-	 always @(posedge clk)
+	 always @(posedge clk, memWr, direccion)
 	 begin
 	 
 	 	if ((memWr & !direccion[12])==1'b1)
