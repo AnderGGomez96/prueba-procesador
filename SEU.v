@@ -47,5 +47,6 @@ module SEU(
 				bus<={{43{address[23]}},address[23:5],2'b0};
 			 end
 		 endcase
+		 
 	 end
 endmodule

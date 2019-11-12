@@ -29,9 +29,14 @@ module DMIO(
     );
 	 reg [7:0] registro;
 	 reg [63:0] memoria [4095:0];
+	 integer i;
 	 
 	 initial
 	 begin
+		 for (i=0; i<256; i=i+1)
+		 begin
+			memoria[i]<=64'd0;
+		 end
 		registro<=8'd0;
 	 end
 		

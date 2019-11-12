@@ -41,6 +41,7 @@ module registerFile(
 			else
 				Registros[i]<=64'h0000000000000000;
 		 end
+		 Registros[7]<=64'd12;
 	  end
 
 	 always @ (posedge clk,regWR,dataWrite)

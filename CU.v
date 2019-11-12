@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module CU(
+   module CU(
     input  zero,
     input  [10:0] opcode,
     output reg bus_reg2loc,
@@ -34,7 +34,7 @@ module CU(
 	 
 	 always @ (*)
 	 begin
-		case (opcode)   //11 bits
+		casex (opcode)   //11 bits
 			11'b10001011000: //ADD
 			begin
 				 bus_reg2loc<=1'b0;
@@ -131,10 +131,10 @@ module CU(
 				bus_regWr<=1'b1;
 				bus_pcSrc<=zero;
 			end
-		endcase
+		//endcase
 			
-		case (opcode [10:5])
-			6'b000101://B
+		//case (opcode [10:5])
+			11'b000101xxxxx://B
 			begin
 				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b10;
@@ -146,10 +146,10 @@ module CU(
 				bus_regWr<=1'b0;
 				bus_pcSrc<=!zero; //
 			end
-		endcase
+		//endcase
 		
-		case(opcode[10:3])
-			8'b10110100://CBZ
+		//case(opcode[10:3])
+			11'b10110100xxx://CBZ
 			begin
 				bus_reg2loc<=1'b1;
 				bus_seu<=2'b11;
@@ -161,7 +161,7 @@ module CU(
 				bus_regWr<=1'b0;
 				bus_pcSrc<=zero;
 			end
-			8'b10110101://CBNZ
+			11'b10110101xxx://CBNZ
 			begin
 				bus_reg2loc<=1'b1;
 				bus_seu<=2'b11;
@@ -173,10 +173,10 @@ module CU(
 				bus_regWr<=1'b0;
 				bus_pcSrc<=!zero;
 			end
-		endcase	
+		//endcase	
 			
-		case (opcode[10:1])
-			10'b1001000100: // ADDI
+		//case (opcode[10:1])
+			11'b1001000100x: // ADDI
 			begin
 				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b00;
@@ -188,7 +188,7 @@ module CU(
 				bus_regWr<=1'b1;
 				bus_pcSrc<=zero;				
 			end
-			10'b1101000100: //SUBI
+			11'b1101000100x: //SUBI
 			begin
 				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b00;
@@ -200,7 +200,7 @@ module CU(
 				bus_regWr<=1'b1;
 				bus_pcSrc<=zero;
 			end
-			10'b1001001000: //ANDI
+			11'b1001001000x: //ANDI
 			begin
 				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b00;
@@ -212,7 +212,7 @@ module CU(
 				bus_regWr<=1'b1;
 				bus_pcSrc<=zero;
 			end
-			10'b1011001000: //ORRI
+			11'b1011001000x: //ORRI
 			begin
 				bus_reg2loc<=1'bx; //X
 				bus_seu<=2'b00;

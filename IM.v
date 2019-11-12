@@ -43,13 +43,17 @@ module IM(
 		for (i=0; i<512;i=i+1)
 			rom[i]<=32'd0;
 			
-		 rom[0]<=32'hF84002A0;
-		 rom[1]<=32'hF84002A1;
-		 rom[2]<=32'h8B000023;
+		 rom[0]<=32'hF84002A0;//LDUR-SW
+		 rom[1]<=32'hF84002A1;//LDUR-SW
+		 rom[2]<=32'hF8004387;//STUR-DM
+		 rom[3]<=32'hF8404390;//LDUR-R
+		 rom[4]<=32'hF80002B0;;
+		 
+		 /*rom[2]<=32'h8B000023;
 		 rom[3]<=32'hB4000042;
 		 rom[4]<=32'hF80002A3;
 		 rom[5]<=32'hF80002A0;
-		 rom[6]<=32'h17FFFFFE;
+		 rom[6]<=32'h17FFFFFE;*/
 		 
 		 /*rom[0]<=32'hF84002A0;
 		 rom[1]<=32'hF84002A1;
