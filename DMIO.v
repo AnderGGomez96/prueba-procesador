@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    16:31:52 11/08/2019 
+// Create Date:    23:45:35 11/12/2019 
 // Design Name: 
 // Module Name:    DMIO 
 // Project Name: 
@@ -19,43 +19,41 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module DMIO(
-	 input wire clk,
-    input wire [63:0] direccion,
-    input wire [63:0] dataWrite,
-    input wire [7:0] sw,
-    input wire memWr,
-    output [7:0] lecturaLED,
-    output [63:0] dataRead
+		input clk,
+		input [63:0]address,
+		input [63:0]data_write,
+		input [7:0]SW,
+		input enable_write,
+		output [7:0]LEDS,
+		output [63:0]data_read
     );
+	 integer j;
+	 wire AND_1;
+	 wire AND_2;
+	 
+	 assign AND_1 = enable_write & !address[12];
+	 assign AND_2 = enable_write & address[12];
+	 reg [63:0] DM [511:0];
 	 reg [7:0] registro;
-	 reg [63:0] memoria [4095:0];
-	 integer i;
 	 
 	 initial
 	 begin
-		 for (i=0; i<256; i=i+1)
-		 begin
-			memoria[i]<=64'd0;
-		 end
+		for (j=0; j<256; j=j+1)
+			DM[j]<=64'd0;
 		registro<=8'd0;
 	 end
-		
-	 always @(posedge clk, memWr, direccion)
-	 begin
 	 
-	 	if ((memWr & !direccion[12])==1'b1)
-		begin
-			memoria[direccion[11:0]]<=dataWrite;
-		end
-		
-		if((memWr & direccion[12])==1'b1)
-		begin
-			registro<=dataWrite[7:0];
-		end
+	 always @(posedge clk)
+	 begin
+		if (AND_1)
+			DM[address[11:0]]<=data_write;
+		else
+			if (AND_2)
+				registro<=data_write[7:0];			
 	 end
 	 
-	 assign lecturaLED = registro;
+	 assign LEDS = registro;
 	 
-	 assign dataRead = (direccion[12]==1'b0) ? memoria[direccion[11:0]] : {56'b0,sw};
-	 
+	 assign data_read = (address[12]==1'b1) ? {56'b0,SW} : DM[address[11:0]];
+	// assign data_read = DM[address[8:0]];
 endmodule

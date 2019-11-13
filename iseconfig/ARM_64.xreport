@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-11-12T11:42:37</DateModified>
+  <DateModified>2019-11-13T11:46:36</DateModified>
   <ModuleName>ARM_64</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/Ghost/Documents/Anderson/ARM/iseconfig/ARM_64.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Ghost/Documents/Anderson/ARM</ImplementationReportsDirectory>
-  <DateInitialized>2019-11-12T11:42:36</DateInitialized>
+  <SavedFilePath>C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/iseconfig/ARM_64.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG</ImplementationReportsDirectory>
+  <DateInitialized>2019-11-13T11:46:35</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>

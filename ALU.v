@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    19:40:20 11/06/2019 
+// Create Date:    19:47:35 11/12/2019 
 // Design Name: 
 // Module Name:    ALU 
 // Project Name: 
@@ -19,50 +19,33 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module ALU(
+    input [63:0] A,
+    input [63:0] B,
     input [2:0] aluOP,
-    input wire signed [63:0] A,
-    input wire signed [63:0] B,
-    output reg zero,
-    output reg [63:0] resultOP
+    output zero,
+    output reg [63:0] resultadoALU
     );
 	 
-	 always @ (*)
+	 always @ (*) // aluOP
 	 begin
 		case (aluOP)
-			3'b000: 
+		3'b000: resultadoALU<= A + B;
+		3'b001: resultadoALU<= A - B;
+		3'b010: resultadoALU<= A & B;
+		3'b011: resultadoALU<= A | B;
+		3'b100: 
 			begin 
-				resultOP<=A+B;//SUMA		
-				zero<=1'b0;
+				if (B == 64'd0) 
+					resultadoALU<=64'd0;
+				else
+					resultadoALU<=64'd1;
 			end
-			3'b001: 
-			begin
-				resultOP<=A-B;//RESTA
-				zero<=1'b0;
-			end
-			3'b010: 
-			begin 
-				resultOP<=A&B;// AND
-				zero<=1'b0;
-			end
-			3'b011:
-			begin
-				resultOP<=A|B;// ORR
-				zero<=1'b0;
-			end
-			3'b100://pass B
-			begin
-				zero<= (B == 64'h0) ? 1'b1:1'b0;
-			end
-			3'b101: 
-			begin 
-				resultOP<=A <<< B[15:10];//LSL
-				zero<=1'b0;
-			end
-			3'b110: 
-			begin 
-				resultOP<=A >>> B[15:10];//LSR
-				zero<=1'b0;
-			end
-		endcase
+		3'b101: resultadoALU<= A << B;
+		3'b110: resultadoALU<= A >> B;
+		//default: resultadoALU<= A + B;
+		endcase;
 	 end
+
+	 assign zero= (resultadoALU == 64'd0) ? 1'b1 : 1'b0;
+	 
 endmodule

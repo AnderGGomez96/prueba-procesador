@@ -1,0 +1,10 @@
+Command line:
+   ARM_TB_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  50266
+
+Wed Nov 13 16:57:38 2019
+
+
+ Elaboration Time: 0.453125 sec

@@ -1,0 +1,56 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.83 secs
+ 
+--> Parameter xsthdpdir set to C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.83 secs
+ 
+--> Reading design: DMIO.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\Ghost\Documents\Anderson\PROCEDADOR_DEBUG\DMIO.v" into library work
+Parsing module <DMIO>.
+ERROR:HDLCompiler:806 - "C:\Users\Ghost\Documents\Anderson\PROCEDADOR_DEBUG\DMIO.v" Line 41: Syntax error near "(".
+ERROR:HDLCompiler:806 - "C:\Users\Ghost\Documents\Anderson\PROCEDADOR_DEBUG\DMIO.v" Line 47: Syntax error near "<=".
+ERROR:HDLCompiler:69 - "C:\Users\Ghost\Documents\Anderson\PROCEDADOR_DEBUG\DMIO.v" Line 52: <memoria> is not declared.
+ERROR:HDLCompiler:598 - "C:\Users\Ghost\Documents\Anderson\PROCEDADOR_DEBUG\DMIO.v" Line 21: Module <DMIO> ignored due to previous errors.
+Verilog file C:\Users\Ghost\Documents\Anderson\PROCEDADOR_DEBUG\DMIO.v ignored due to errors
+--> 
+
+Total memory usage is 4454800 kilobytes
+
+Number of errors   :    4 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

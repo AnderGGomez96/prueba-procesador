@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    14:23:09 11/07/2019 
+// Create Date:    20:08:30 11/12/2019 
 // Design Name: 
 // Module Name:    SEU 
 // Project Name: 
@@ -19,34 +19,20 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module SEU(
-    input [31:0] address,
+    input [31:0] inst_extend,
     input [1:0] seu,
-    output reg [63:0] bus
+    output reg [63:0] salida_extend
     );
 	 
-	 always @ (*)
+	 always @ (*) // seu
 	 begin
-		 case(seu)
-			 2'b00://Aluimmediate
-			 begin
-				bus<={52'b0,address[21:10]};
-			 end
-			 
-			 2'b01://DT_Address
-			 begin
-				bus<={{55{address[20]}},address[20:12]};
-			 end
-			 
-			 2'b10:
-			 begin //Branch_Address
-				bus<={{36{address[25]}},address[25:0],2'b0};
-			 end
-			 
-			 2'b11: //Cond_Branch_Address
-			 begin
-				bus<={{43{address[23]}},address[23:5],2'b0};
-			 end
-		 endcase
-		 
+		case (seu)
+		2'b00: salida_extend<={52'b0,inst_extend[21:10]}; //ALUIMM
+		2'b01: salida_extend<={{55{inst_extend[20]}},inst_extend[20:12]}; //DT_ADDRESS
+		2'b10: salida_extend<={{36{inst_extend[25]}},inst_extend[25:0],2'b0};//BRANCH
+		2'b11: salida_extend<={{43{inst_extend[23]}},inst_extend[23:5],2'b0};//COND_BRANCH
+		endcase
 	 end
+
+
 endmodule

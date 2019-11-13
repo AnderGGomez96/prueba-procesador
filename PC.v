@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    17:36:14 11/08/2019 
+// Create Date:    19:17:57 11/12/2019 
 // Design Name: 
 // Module Name:    PC 
 // Project Name: 
@@ -20,17 +20,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 module PC(
     input clk,
-    input  [63:0] newDirection,
-    output reg [63:0] bus_DireccionIM
+    input [63:0] nueva_direccion,
+    output [63:0] salida_im
     );
+	 reg [63:0] pc_actual;
 	 
 	 initial
 	 begin
-		bus_DireccionIM<=64'd0;
+		pc_actual<=64'd0;
 	 end
 	 
 	 always @ (posedge clk)
 	 begin
-		bus_DireccionIM<=newDirection;
+		pc_actual<=nueva_direccion;
 	 end
+
+	assign salida_im = pc_actual;
 endmodule

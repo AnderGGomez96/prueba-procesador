@@ -1,28 +1,35 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/Ghost/Documents/Anderson/ARM/TB_64_isim_beh.exe" -prj "C:/Users/Ghost/Documents/Anderson/ARM/TB_64_beh.prj" "work.TB_64" "work.glbl" 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/ARM_TB_isim_beh.exe" -prj "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/ARM_TB_beh.prj" "work.ARM_TB" "work.glbl" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
-Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/ARM/ARM_64.v" into library work
-Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/ARM/TB_64.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/SEU.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/RF.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/PC.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/IM.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/DMIO.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/ALU.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/Ruta_Datos.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/CU.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/ARM_64.v" into library work
+Analyzing Verilog file "C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/ARM_TB.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling module PC
 Compiling module IM
-Compiling module registerFile
-Compiling module CU
+Compiling module RF
 Compiling module SEU
 Compiling module ALU
 Compiling module DMIO
-Compiling module suma1
-Compiling module suma2
+Compiling module Ruta_Datos
+Compiling module CU
 Compiling module ARM_64
-Compiling module TB_64
+Compiling module ARM_TB
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 8 sub-compilation(s) to finish...
-Compiled 12 Verilog Units
-Built simulation executable C:/Users/Ghost/Documents/Anderson/ARM/TB_64_isim_beh.exe
-Fuse Memory Usage: 28152 KB
-Fuse CPU Usage: 1421 ms
+Compiled 11 Verilog Units
+Built simulation executable C:/Users/Ghost/Documents/Anderson/PROCEDADOR_DEBUG/ARM_TB_isim_beh.exe
+Fuse Memory Usage: 28164 KB
+Fuse CPU Usage: 1296 ms
